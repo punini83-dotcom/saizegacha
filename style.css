@@ -1,0 +1,232 @@
+@charset "utf-8";
+body{
+    background-color: #e0e0e0; /* 背景色 */
+    font-family: 'メイリオ', 'Meiryo', sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+input, button, select, textarea {
+    font-family: inherit;
+}
+
+/* トップページ */
+#inputPage{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    background-color: #fff;
+}
+.backgreen{
+    width: 100%;
+    height: 60px;
+    background-color: #219228;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+        font-size: 1.5em;
+        color: #fff;
+        padding: 5px;
+        margin: 10px;
+        align-items: center;
+    }
+}
+
+#settingbtn{
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-top: 15px;
+    font-style: normal;
+    font-weight: 800;
+    color: #219228;
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+}
+#settingIcon{
+    width: 3em;
+    height: auto;
+}
+
+/* 金額変更画面 */
+#setpricepage-overlay {
+    position: fixed; /* 画面に固定 */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+
+    /* 中身をど真ん中に寄せる魔法の3行 */
+    display: flex;
+    justify-content: center; /* 左右中央 */
+    align-items: center;     /* 上下中央 */
+    z-index: 1000;           /* 一番手前に表示 */
+}
+#setpricepage-content{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    width: 80%;
+    max-width: 300px;
+    font-size: 1em;
+    border: 2px solid #219228;
+    p{
+        align-self: center;
+    }
+}
+#inputpri-num {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1em;
+    width: 50%;
+    box-sizing: border-box;
+}
+#inputpri{
+    display: flex;
+    flex-direction: row;
+}
+#confirmPriceButton{
+    align-self: flex-end;
+    width: 40%;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border: #bbb solid 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #eee;
+    color: #000;
+}
+
+#logo{
+    width: 90%;
+    height: auto;
+}
+
+/* 注文をはじめるボタン */
+#startButton{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
+    width: 70%;
+    height: 2.5em;
+    font-weight: 520;
+    font-style: normal;
+    font-size: 2em;
+    color: #fff;
+    background: -moz-linear-gradient(bottom, #CE0000 50%, #FF999D);
+    background: -webkit-linear-gradient(bottom, #CE0000 50%, #FF999D);
+    background: linear-gradient(to top, #CE0000 50%, #FF999D);
+    border-radius: 8px;
+    border: 2px solid #CE0000;
+    cursor: pointer;
+}
+
+/* 注文結果ページ */
+#resultPage{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    background-color: #fff;
+}
+#cart-container {
+    margin: 1em auto 0 auto;
+    background-color: #e8e8e8; 
+    width: 95%;
+    height: 20em;
+    border: 2px solid #219228;
+    border-radius: 8px;    
+    font-size: 1.2em;   
+    overflow-y: auto; 
+    /* スクロールバー　Firefox対応 */
+    scrollbar-width: none;
+    /* IE対応（必要に応じて） */
+    -ms-overflow-style: none;
+}
+/* Chrome, Safari, Edge対応 */
+#cart-container::-webkit-scrollbar {
+  display: none;
+}
+#cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    table-layout: fixed; /* セルの幅を均等にする */
+}
+#cart-table th { /* ヘッダーセルのスタイル */
+    background-color: #c0c0c0;
+    color: #333;
+    padding: 8px;
+    text-align: left;
+}
+#cart-table td { /* データセルのスタイル */
+    padding: 10px 8px;
+    overflow: hidden;/* テキストがセルをはみ出す場合に隠す */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* 列ごとの幅を指定 */
+#cart-table th:nth-child(1) {
+    width: 70%;
+}
+#cart-table th:nth-child(2) {
+    width: 15%;
+}
+#cart-table th:nth-child(3) {
+    width: 15%;
+}
+
+/* 合計表示 */
+#total-container {
+    margin-top: 0em;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+    width: 95%;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+#restartButton{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 2em;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    color: #fff;
+    background: -moz-linear-gradient(bottom, #CE0000 50%, #FF999D);
+    background: -webkit-linear-gradient(bottom, #CE0000 50%, #FF999D);
+    background: linear-gradient(to top, #CE0000 50%, #FF999D);
+    border-radius: 8px;
+    border: 2px solid #CE0000;
+    cursor: pointer;
+}

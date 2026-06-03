@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイゼリヤ</title>
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <!-- トップ画面 -->
+    <div id="inputPage"> 
+        <div class="backgreen">
+            <p>いらっしゃいませ</p>
+        </div>
+
+        <button id="settingbtn">
+            <img src="img/globe.jpg" alt="設定アイコン" id="settingIcon">
+            setting
+        </button>
+
+        <img src="img/saize_logo.jpg" alt="サイゼリヤのロゴ" id="logo">
+
+        <button id="startButton">注文をはじめる</button>
+
+        <!-- 金額設定画面 -->
+        <div id="setpricepage-overlay">
+            <div id="setpricepage-content">
+                <p>合計金額</p>
+                <label><input type="radio" name="sepri" checked="checked" />ランダム</label>
+                <div id="inputpri">
+                    <label><input type="radio" name="sepri" id="radio-custom" />自由に入力：</label>
+                    <input type="number" id="inputpri-num" value="1500" min="50" max="100000" step="10" disabled> 円
+                </div>
+                <button id="confirmPriceButton">決定</button>
+            </div>
+        </div>
+
+        <!-- 結果表示画面 -->
+        <div id="resultPage">
+            <div class="backgreen">
+                <p>注文内容をご確認ください</p>
+            </div>
+            <div id="cart-container">
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>メニュー名</th>
+                            <th>数量</th>
+                            <th>価格</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-table-body">
+                        </tbody>
+                </table>
+            </div>
+            <div id="total-container">
+                <p id="total-num"></p>
+                <p id="total-price"></p>
+            </div>
+            <button id="restartButton">もう一度注文する</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
