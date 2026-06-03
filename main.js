@@ -98,9 +98,10 @@ function mainGacha(num) {
         remain -= matchmenu[randomindex].price;
     }
     if (remain > 0) {
-        mainGacha(num);
+        return mainGacha(num);
+    }else {
+        return result;
     }
-    return result;
 }
 /* データを整理する */
 function condensend(result){
