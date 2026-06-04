@@ -97,13 +97,9 @@ function mainGacha(num) {
         result.push(matchmenu[randomindex]);
         remain -= matchmenu[randomindex].price;
     }
-    if (remain > 0) {
-        return mainGacha(num);
-    }else {
-        return result;
-    }
+    return [result, remain];
 }
-/* データを整理する */
+/* 重複を整理 */
 function condensend(result){
     const conRes = [];
     result.forEach(item =>{
@@ -134,7 +130,7 @@ function displayResult(result) {
         row.innerHTML = `
             <td>${item.name}</td>
             <td>${item.count}</td>
-            <td>${item.price * item.count}</td>
+            <td>${item.price}</td>
         `;
         cartTableBody.appendChild(row);
     });
@@ -159,6 +155,16 @@ setbtn.addEventListener("click", function() {
 });
 const confirmBtn = document.getElementById("confirmPriceButton");
 confirmBtn.addEventListener("click", function() {
+    const customPrice = parseInt(document.getElementById("inputpri-num").value);
+    if(customPrice<0){
+        document.getElementById("inputpri-num").value = 0;
+    }else if(customPrice<100){
+        document.getElementById("inputpri-num").value = 100;
+    }else if(customPrice>100000){
+        document.getElementById("inputpri-num").value = 100000;
+    }else if(customPrice%50 != 0){
+        document.getElementById("inputpri-num").value = Math.floor(customPrice/50)*50;
+    }
     setmenu.style.visibility = "hidden";
 });
 
@@ -185,14 +191,22 @@ startBtn.addEventListener("click", startGacha);
 
 function startGacha() {
     let customPrice;
+    let Result;
     if(document.getElementById("radio-custom").checked) {
         customPrice = parseInt(document.getElementById("inputpri-num").value);
+    let count = 0;
+    do {
+        Result = mainGacha(customPrice);
+        count++;
+        if (count > 1000) break; // 念のための無限ループ防止
+    } while (Result[1] !== 0);
+
     } else {
-        customPrice = Math.floor(Math.random() * ((5000 - 50 + 1)/10) + 50) * 10;
+        customPrice = Math.floor(Math.random() * ((5000 - 100 + 1)/10) + 100) * 10;
+        Result = mainGacha(customPrice);
     }
 
-    const Result = mainGacha(customPrice);
-    displayResult(Result);
+    displayResult(Result[0]);
 
 }
 
