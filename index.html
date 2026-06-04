@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サイゼリヤ</title>
-    <script src="main.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <style>
@@ -21,11 +21,11 @@
         </div>
 
         <button id="settingbtn">
-            <img src="globe.jpg" alt="設定アイコン" id="settingIcon">
+            <img src="img/seticon.png" alt="設定アイコン" id="settingIcon">
             setting
         </button>
 
-        <img src="saize_logo.jpg" alt="サイゼリヤのロゴ" id="logo">
+        <img src="img/saize_logo.jpg" alt="サイゼリヤのロゴ" id="logo">
 
         <button id="startButton">注文をはじめる</button>
 
@@ -34,9 +34,9 @@
             <div id="setpricepage-content">
                 <p>合計金額</p>
                 <label><input type="radio" name="sepri" checked="checked" />ランダム</label>
+                <label><input type="radio" name="sepri" />金額を指定する(50円単位): </label>
                 <div id="inputpri">
-                    <label><input type="radio" name="sepri" id="radio-custom" />自由に入力：</label>
-                    <input type="number" id="inputpri-num" value="1500" min="50" max="100000" step="10" disabled> 円
+                    <input type="number" id="inputpri-num" value="1500" min="100" max="100000" step="50" disabled> 円
                 </div>
                 <button id="confirmPriceButton">決定</button>
             </div>
